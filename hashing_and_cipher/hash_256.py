@@ -13,16 +13,19 @@ def file_hash(file_to_hash):
     with open("hashed_file.txt", "x") as new_file:
         new_file.write(f"The result of the hashing is: {hash256.digest()}")
 
+def main(option):
+    if option == "file":
+        try:
+            user_file = str(input("Enter your file in current directory: "))
+            file_hash(user_file)
+        except FileExistsError:
+            print("A hashed file already exists. Please remove the current hashed file before making a new one.")
+    elif option == "string":
+        user_string = str(input("Enter your string:\n"))
+        print(f"Here is the hashed string {string_hash(user_string)}")
+    else:
+        print("Please enter a valid option")
+
 user_choice = str(input("Would you like to encrypt a file or string? ")).lower()
 
-if user_choice == "file":
-    try:
-        user_file = str(input("Enter your file in current directory: "))
-        file_hash(user_file)
-    except FileExistsError:
-        print("A hashed file already exists. Please remove the current hashed file before making a new one.")
-elif user_choice == "string":
-    user_string = str(input("Enter your string:\n"))
-    print(f"Here is the hashed string {string_hash(user_string)}")
-else:
-    print("Please enter a valid option")
+main(user_choice)
