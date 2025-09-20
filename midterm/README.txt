@@ -11,7 +11,7 @@ Main is declared, this is where the Fernet key is generated a goes through a Fer
 An if else statement checks whether the user is inputting a file or string.
 If the user chooses file, it takes the name of the file and hashes it before encrypting the hash as well.
 An if else statement checks if the decrpyted version of the hash and the normal hash still match, proving its integrity.
-If it fails, it simply prints a message that something may have went wrong. Proper error handling has yet to be implemented.
+If a file already exists with the same name as the file meant to be created then it will tell the user to remove the file before closing the program.
 
 If the user entered string, it starts by retrieving a string from the user.
 It hashes the string before encrypting it.

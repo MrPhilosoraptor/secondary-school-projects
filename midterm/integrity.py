@@ -38,14 +38,14 @@ def main(option):
                 print("Successfully wrote the new contents to a new file. Check your directory.")
             else:
                 print("Something seems to have went wrong.")
-        except:
-            print("An error has occurred when checking the two hashes.")
+        except FileExistsError:
+            print("A hashed file already exists in the current directory. Please remove this to create a new one.")
 
     elif option == "string":
         user_string = str(input("Enter your string:\n"))
         encryptedAndHashed = encryption(string_hash(user_string), cipher_suite)
         if decryption(encryptedAndHashed, cipher_suite) == string_hash(user_string):
-            print("The text has been hashed and encrypted successfully.")
+            print("The text has been hashed and encrypted successfully. See below for the result.")
             print(encryptedAndHashed)
     else:
         print("Please enter a valid option")
