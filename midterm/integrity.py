@@ -37,7 +37,7 @@ def main(option):
                 write_to_file(encryptedAndHashed)
                 print("Successfully wrote the new contents to a new file. Check your directory.")
             else:
-                print("Something may have went wrong.")
+                print("Something seems to have went wrong.")
         except:
             print("An error has occurred when checking the two hashes.")
 
